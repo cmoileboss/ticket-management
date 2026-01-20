@@ -8,8 +8,9 @@ filepath = 'tickets.json'
 def read_json_file():
     """
     Reads a JSON file and returns its content as a dictionary.
-    Returns:        
-        dict: The content of the JSON file.
+    Returns:
+        response (Response): An object containing status, message, and data if successful.
+        data (dict): The content of the JSON file as a dictionary.
     """
     try:
         with open(filepath, 'r', encoding='utf-8') as file:
@@ -34,6 +35,9 @@ def write_json_file(json_object):
     Writes a dictionary to a JSON file.
     Args:
         json_object (dict): The dictionary to write to the JSON file.
+    Returns:
+        response (Response): An object containing status, message, and data if successful.
+        data (dict): The added object.
     """
     read_response = read_json_file()
     if read_response.status != 200:
@@ -60,7 +64,8 @@ def count_status():
     """
     Counts the occurrences of each status in the JSON file.
     Returns:
-        dict: A dictionary with statuses as keys and their counts as values.
+        response (Response): An object containing status, message, and data if successful.
+        data (dict): A dictionary with statuses as keys and their counts as values.
     """
     read_response = read_json_file()
     if read_response.status != 200:
@@ -88,7 +93,7 @@ def delete_ticket_by_id(ticket_id):
     Args:
         ticket_id (int): The ID of the ticket to delete.
     Returns:
-        dict: A message indicating the result of the deletion.
+        response (Response): An object containing status and message.
     """
     read_response = read_json_file()
     if read_response.status != 200:
@@ -125,7 +130,8 @@ def update_json_ticket_status(ticket_id, new_status):
         ticket_id (int): The ID of the ticket to update.
         new_status (str): The new status to set.
     Returns:
-        dict: A message indicating the result of the update.
+        response (Response): An object containing status, message, and data if successful.
+        data (dict): The modified object.
     """
     read_response = read_json_file()
     if read_response.status != 200:
