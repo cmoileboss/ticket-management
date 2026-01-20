@@ -1,18 +1,23 @@
-import { useState, useEffect } from 'react';
+import { updateStatusService } from '../services/ticket-service';
 
 
-export function TicketCard(ticket) {
+export function TicketCard(ticket, updateTicketinList) {
 
     const selectId = `select-status-${ticket.id}`;
+    const statusId = `status-${ticket.id}`;
 
-    function updateStatus() {
+    async function updateTicket() {
         const selectObject = document.getElementById(selectId);
-        const selectedValue = selectObject.options[selectObject.selectedIndex].value;
-        console.log("value : " + selectedValue);
+        const selectedStatus = selectObject.options[selectObject.selectedIndex].value;
+        updateStatusService(ticket.id, selectedStatus)
+            .then(data => {
+                updateTicketinList(ticket, selectedStatus);
+            })
+            .catch(error => console.log(error));
     }
 
     return (
-        <div>
+        <div id={ticket.id}>
             id : {ticket.id}<br/>
             title : {ticket.title}<br/>
             description : {ticket.description}<br/>
@@ -25,7 +30,7 @@ export function TicketCard(ticket) {
                 <option value="in progress">In progress</option>
                 <option value="close">Close</option>
             </select>
-            <button onClick={updateStatus}>Mettre à jour le statut</button>
+            <button onClick={updateTicket}>Mettre à jour le statut</button>
         </div>
     )
 } 
