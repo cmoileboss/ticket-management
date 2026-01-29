@@ -42,19 +42,6 @@ export function TicketsList ()
         setTickets(new_tickets);
     }
 
-    function createTicket(ticket_to_create) {
-        const max_index = getMaxIndex() + 1;
-        ticket_to_create.id = max_index;
-        createTicketService(ticket_to_create)
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
-
-
-        let new_tickets = [...tickets];
-        new_tickets.push(ticket_to_create);
-        setTickets(new_tickets);
-    }
-
     function createTicketViaForm() {
         const max_index = getMaxIndex() + 1;
         const form = document.getElementById('create-ticket-form');
@@ -113,14 +100,6 @@ export function TicketsList ()
                 <button type="submit" onClick={(e) => {createTicketViaForm()}}>envoyer</button>
             </form>
         
-            <button onClick={() => createTicket({
-                "title": "Ajouter un filtre par priorité",
-                "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
-                "priority": "Medium",
-                "status": "in progress",
-                "tags": ["feature", "ux"],
-                "createdAt": "2026-01-15"
-            })}>Ajouter ticket</button>
             <ul id='ticket-list'>
                 { tickets.map(ticket=>{
                     const deleteId = 'delete-button-' + ticket.id;
