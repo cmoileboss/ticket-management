@@ -251,5 +251,100 @@
         ],
         "priority": "Medium",
         "createdAt": "2026-01-15"
+    },
+    {
+        "id": 1001,
+        "title": "Ajouter un filtre par priorité",
+        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "ux"
+        ],
+        "priority": "Medium",
+        "createdAt": "2026-01-15"
+    },
+    {
+        "id": 1002,
+        "title": "Ajouter un filtre par priorité",
+        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "ux"
+        ],
+        "priority": "Medium",
+        "createdAt": "2026-01-15"
+    },
+    {
+        "id": 1003,
+        "title": "test",
+        "description": "test",
+        "status": "open",
+        "tags": [
+            "test",
+            "tag"
+        ],
+        "priority": "Low",
+        "createdAt": "2026-01-29"
+    },
+    {
+        "id": 1004,
+        "title": "",
+        "description": "",
+        "status": "open",
+        "tags": [
+            ""
+        ],
+        "priority": "Low",
+        "createdAt": "2026-01-29"
+    },
+    {
+        "id": 1005,
+        "title": "Ajouter un filtre par priorité",
+        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "ux"
+        ],
+        "priority": "Medium",
+        "createdAt": "2026-01-15"
+    },
+    {
+        "id": 1007,
+        "title": "Ajouter un filtre par priorité",
+        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "ux"
+        ],
+        "priority": "Medium",
+        "createdAt": "2026-01-15"
+    },
+    {
+        "id": 1008,
+        "title": "Ajouter un filtre par priorité",
+        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "ux"
+        ],
+        "priority": "Medium",
+        "createdAt": "2026-01-15"
+    },
+    {
+        "id": 1009,
+        "title": "test",
+        "description": "testing",
+        "status": "open",
+        "tags": [
+            "test",
+            "tag"
+        ],
+        "priority": "Low",
+        "createdAt": "2026-01-29"
     }
 ]
