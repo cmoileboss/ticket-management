@@ -466,6 +466,7 @@ Dis-moi ce que tu veux approfondir 👌
 ```Comment vérifier que les requêtes vers les endpoints envoient les bons types de données ?```  
   
   
+  
 
 Excellente question — et très mature comme réflexion 👌
 Vérifier que les requêtes envoient les bons types de données est essentiel pour éviter les erreurs 422, les bugs silencieux et les décalages frontend / backend.

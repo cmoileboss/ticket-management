@@ -1,110 +1,142 @@
 [
-  {
-    "id": 1,
-    "title": "Bug bouton login",
-    "description": "Le bouton de connexion ne répond pas sur mobile (Android).",
-    "priority": "High",
-    "status": "open",
-    "tags": ["bug", "ui", "mobile"],
-    "createdAt": "2026-01-16"
-  },
-  {
-    "id": 2,
-    "title": "Ajouter un filtre par priorité",
-    "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
-    "priority": "Medium",
-    "status": "in progress",
-    "tags": ["feature", "ux"],
-    "createdAt": "2026-01-15"
-  },
-  {
-    "id": 3,
-    "title": "Erreur 500 lors de la création de compte",
-    "description": "Une erreur serveur se produit lors de la tentative d'inscription avec un email déjà existant.",
-    "priority": "High",
-    "status": "close",
-    "tags": ["bug", "backend", "registration"],
-    "createdAt": "2026-01-18"
-  },
-  {
-    "id": 4,
-    "title": "Optimiser les performances de chargement",
-    "description": "La page d'accueil met plus de 3 secondes à charger. Optimiser les requêtes et le chargement des ressources.",
-    "priority": "Medium",
-    "status": "in progress",
-    "tags": ["performance", "optimization"],
-    "createdAt": "2026-01-17"
-  },
-  {
-    "id": 5,
-    "title": "Mise à jour de la bibliothèque de graphiques",
-    "description": "Mettre à jour Chart.js vers la dernière version pour corriger les vulnérabilités de sécurité.",
-    "priority": "High",
-    "status": "open",
-    "tags": ["security", "library", "update"],
-    "createdAt": "2026-01-19"
-  },
-  {
-    "id": 6,
-    "title": "Bug d'affichage du dashboard",
-    "description": "Les graphiques du tableau de bord ne s'affichent pas correctement sur Safari.",
-    "priority": "Medium",
-    "status": "open",
-    "tags": ["bug", "ui", "safari"],
-    "createdAt": "2026-01-13"
-  },
-  {
-    "id": 7,
-    "title": "Mettre à jour la documentation API",
-    "description": "La documentation Swagger est obsolète et doit être mise à jour avec les nouveaux endpoints.",
-    "priority": "Low",
-    "status": "open",
-    "tags": ["documentation", "api"],
-    "createdAt": "2026-01-12"
-  },
-  {
-    "id": 8,
-    "title": "Ajouter la validation côté client",
-    "description": "Implémenter la validation des formulaires côté client pour améliorer l'expérience utilisateur.",
-    "priority": "Medium",
-    "status": "in progress",
-    "tags": ["feature", "validation", "ux"],
-    "createdAt": "2026-01-20"
-  },
-  {
-    "id": 9,
-    "title": "Problème de synchronisation des données",
-    "description": "Les données ne se synchronisent pas correctement entre les appareils connectés.",
-    "priority": "High",
-    "status": "close",
-    "tags": ["bug", "sync", "data"],
-    "createdAt": "2026-01-14"
-  },
-  {
-    "id": 10,
-    "title": "Améliorer l'accessibilité",
-    "description": "Ajouter des labels ARIA et améliorer la navigation au clavier pour les utilisateurs handicapés.",
-    "priority": "Low",
-    "status": "open",
-    "tags": ["accessibility", "ux", "compliance"],
-    "createdAt": "2026-01-21"
-  },
-  {
-    "id": 11,
-    "title": "Intégrer l'authentification OAuth",
-    "description": "Permettre la connexion via Google, Facebook et autres fournisseurs OAuth.",
-    "priority": "Medium",
-    "status": "in progress",
-    "tags": ["feature", "authentication", "oauth"],
-    "createdAt": "2026-01-22"
-  },
-  {
-    "id": 12,
-    "title": "Corriger les fuites de mémoire",
-    "description": "Identifier et corriger les fuites de mémoire dans l'application React.",
-    "priority": "High",
-    "status": "open",
-    "tags": ["bug", "performance", "memory"],
-    "createdAt": "2026-01-23"
-  }
+    {
+        "id": 1,
+        "title": "Bug bouton login",
+        "description": "Le bouton de connexion ne répond pas sur mobile (Android).",
+        "priority": "High",
+        "status": "in progress",
+        "tags": [
+            "bug",
+            "ui",
+            "mobile"
+        ],
+        "createdAt": "2026-01-16"
+    },
+    {
+        "id": 2,
+        "title": "Ajouter un filtre par priorité",
+        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
+        "priority": "Medium",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "ux"
+        ],
+        "createdAt": "2026-01-15"
+    },
+    {
+        "id": 3,
+        "title": "Erreur 500 lors de la création de compte",
+        "description": "Une erreur serveur se produit lors de la tentative d'inscription avec un email déjà existant.",
+        "priority": "High",
+        "status": "close",
+        "tags": [
+            "bug",
+            "backend",
+            "registration"
+        ],
+        "createdAt": "2026-01-18"
+    },
+    {
+        "id": 4,
+        "title": "Optimiser les performances de chargement",
+        "description": "La page d'accueil met plus de 3 secondes à charger. Optimiser les requêtes et le chargement des ressources.",
+        "priority": "Medium",
+        "status": "in progress",
+        "tags": [
+            "performance",
+            "optimization"
+        ],
+        "createdAt": "2026-01-17"
+    },
+    {
+        "id": 5,
+        "title": "Mise à jour de la bibliothèque de graphiques",
+        "description": "Mettre à jour Chart.js vers la dernière version pour corriger les vulnérabilités de sécurité.",
+        "priority": "High",
+        "status": "open",
+        "tags": [
+            "security",
+            "library",
+            "update"
+        ],
+        "createdAt": "2026-01-19"
+    },
+    {
+        "id": 6,
+        "title": "Bug d'affichage du dashboard",
+        "description": "Les graphiques du tableau de bord ne s'affichent pas correctement sur Safari.",
+        "priority": "Medium",
+        "status": "open",
+        "tags": [
+            "bug",
+            "ui",
+            "safari"
+        ],
+        "createdAt": "2026-01-13"
+    },
+    {
+        "id": 7,
+        "title": "Mettre à jour la documentation API",
+        "description": "La documentation Swagger est obsolète et doit être mise à jour avec les nouveaux endpoints.",
+        "priority": "Low",
+        "status": "open",
+        "tags": [
+            "documentation",
+            "api"
+        ],
+        "createdAt": "2026-01-12"
+    },
+    {
+        "id": 8,
+        "title": "Ajouter la validation côté client",
+        "description": "Implémenter la validation des formulaires côté client pour améliorer l'expérience utilisateur.",
+        "priority": "Medium",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "validation",
+            "ux"
+        ],
+        "createdAt": "2026-01-20"
+    },
+    {
+        "id": 9,
+        "title": "Problème de synchronisation des données",
+        "description": "Les données ne se synchronisent pas correctement entre les appareils connectés.",
+        "priority": "High",
+        "status": "close",
+        "tags": [
+            "bug",
+            "sync",
+            "data"
+        ],
+        "createdAt": "2026-01-14"
+    },
+    {
+        "id": 10,
+        "title": "Améliorer l'accessibilité",
+        "description": "Ajouter des labels ARIA et améliorer la navigation au clavier pour les utilisateurs handicapés.",
+        "priority": "Low",
+        "status": "open",
+        "tags": [
+            "accessibility",
+            "ux",
+            "compliance"
+        ],
+        "createdAt": "2026-01-21"
+    },
+    {
+        "id": 11,
+        "title": "Intégrer l'authentification OAuth",
+        "description": "Permettre la connexion via Google, Facebook et autres fournisseurs OAuth.",
+        "priority": "Medium",
+        "status": "in progress",
+        "tags": [
+            "feature",
+            "authentication",
+            "oauth"
+        ],
+        "createdAt": "2026-01-22"
+    }
 ]
