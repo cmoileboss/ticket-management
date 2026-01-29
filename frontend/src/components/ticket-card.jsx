@@ -19,7 +19,7 @@ export function TicketCard(ticket, updateTicketinList, deleteTicket) {
 
     return (
         <div id={ticket.id} className="ticket-card" data-priority={ticket.priority.toLowerCase()}>
-            <h1>{ticket.id + " " + ticket.title}</h1>
+            <h1>{ticket.title}</h1>
             <p><strong>Description :</strong> {ticket.description}</p>
             <p><strong>Priorité :</strong> {ticket.priority}</p>
             <p><strong>Status :</strong> <span className={`status-badge status-${ticket.status.replace(' ', '-')}`}>{ticket.status}</span></p>

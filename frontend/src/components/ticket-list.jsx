@@ -86,7 +86,7 @@ export function TicketsList ()
 
     return(
         <div>
-             <form id="create-ticket-form"  > {/*  onSubmit={(e) => {createTicketViaForm()} } */}
+             <form id="create-ticket-form"  >
                 <input type="text" name="title" placeholder="Titre" />
                 <input type="text" name="description" placeholder="Description" />
                 <select name="priority" >
