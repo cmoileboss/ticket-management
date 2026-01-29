@@ -2,6 +2,8 @@
 
 ## Installation
 
+Lien vers le frontend : https://github.com/gaetan-pardon/ticket-management-front  
+
 Dans le dossier backend :  
 ```pip install uvicorn```  
 ```pip install fastapi```  
