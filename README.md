@@ -1,5 +1,14 @@
 # ticket-management
 
+## Installation
+
+Dans le dossier backend :  
+```pip install uvicorn```  
+```pip install fastapi```  
+
+Dans le dossier frontend :  
+```npm install```
+
 ## Lancement de l'API
   
 ```cd backend```  
@@ -13,14 +22,14 @@
 ## Endpoints  
 
 **Get Endpoints**  
-http://localhost/tickets
+http://localhost/tickets  
 http://localhost/count-status
 
-**POST Endpoints**
+**POST Endpoints**  
 http://localhost/tickets/{id}
 
-**DELETE Endpoints**
+**DELETE Endpoints**  
 http://localhost/tickets/{id}
 
-**PATCH Endpoints**
+**PATCH Endpoints**  
 http://localhost/tickets/{id}
