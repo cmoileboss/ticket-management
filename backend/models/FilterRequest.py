@@ -5,3 +5,4 @@ from models.PriorityEnum import PriorityEnum
 class FilterRequest(BaseModel):
     status: str = "all"
     priority: str = "all"
+    order: str = "creation_date"

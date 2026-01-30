@@ -161,53 +161,6 @@ async def count_status_endpoint():
    logging.info("Counted ticket statuses")
    return JSONResponse(status_code=result["status"], content=result)
 
-@app.post("/tickets/filter")
-def getFilteredTickets(filter_request: FilterRequest):
-   status = filter_request.status
-   priority = filter_request.priority
-   
-   from models.StatusEnum import StatusEnum
-   from models.PriorityEnum import PriorityEnum
-   
-   valid_statuses = [e.value for e in StatusEnum] + ["all"]
-   valid_priorities = [e.value for e in PriorityEnum] + ["all"]
-   
-   if status not in valid_statuses:
-      return JSONResponse(
-         status_code=400,
-         content={
-            "status": 400,
-            "message": f"Invalid status: {status}. Must be one of {valid_statuses}.",
-            "data": None
-         }
-      )
-   if priority not in valid_priorities:
-      return JSONResponse(
-         status_code=400,
-         content={
-            "status": 400,
-            "message": f"Invalid priority: {priority}. Must be one of {valid_priorities}.",
-            "data": None
-         }
-      )
-   
-   read_response = read_json_file()
-   data = read_response["data"]
-   if status == "all" and priority == "all":
-      return JSONResponse(status_code=200, content={"status": 200, "message": "All tickets fetched successfully.", "data": data})
-   
-   if status == "all":
-      priority_filtered_tickets = [item for item in data if item.get("priority") == priority]
-      return JSONResponse(status_code=200, content={"status": 200, "message": f"Tickets with priority {priority} fetched successfully.", "data": priority_filtered_tickets})
-   
-   if priority == "all":
-      status_filtered_tickets = [item for item in data if item.get("status") == status]
-      return JSONResponse(status_code=200, content={"status": 200, "message": f"Tickets with status {status} fetched successfully.", "data": status_filtered_tickets})
-   
-   filtered_tickets = [item for item in data if item.get("status") == status and item.get("priority") == priority]
-   logging.info(f"Fetched tickets with status {status} and priority {priority}")
-   return JSONResponse(status_code=200, content={"status": 200, "message": f"Tickets with status {status} and priority {priority} fetched successfully.", "data": filtered_tickets})
-
 # DELETE endpoints
 @app.delete("/tickets/{id}")
 async def delete_ticket(id: int):
@@ -221,6 +174,78 @@ async def create_ticket(ticket: TicketCreate):
    result = write_json_file(ticket)
    logging.info("Created a new ticket")
    return JSONResponse(status_code=result["status"], content=result)
+
+@app.post("/tickets/filter")
+def getFilteredTickets(filter_request: FilterRequest):
+   status = filter_request.status
+   priority = filter_request.priority
+   order = filter_request.order
+   
+   from models.StatusEnum import StatusEnum
+   from models.PriorityEnum import PriorityEnum
+   
+   valid_statuses = [e.value for e in StatusEnum] + ["all"]
+   valid_priorities = [e.value for e in PriorityEnum] + ["all"]
+   
+   if status not in valid_statuses:
+      logging.error(f"Invalid status filter: {status}")
+      return JSONResponse(
+         status_code=400,
+         content={
+            "status": 400,
+            "message": f"Invalid status: {status}. Must be one of {valid_statuses}.",
+            "data": None
+         }
+      )
+   if priority not in valid_priorities:
+      logging.error(f"Invalid priority filter: {priority}")
+      return JSONResponse(
+         status_code=400,
+         content={
+            "status": 400,
+            "message": f"Invalid priority: {priority}. Must be one of {valid_priorities}.",
+            "data": None
+         }
+      )
+   
+   read_response = read_json_file()
+   data = read_response["data"]
+   filtered_tickets = data.copy()
+
+   if status == "all" and priority != "all":
+      filtered_tickets = [item for item in data if item.get("priority") == priority]
+      logging.info(f"Fetched tickets with priority {priority}")
+   
+   if priority == "all" and status != "all":
+      logging.info(f"Fetched tickets with status {status}")
+      filtered_tickets = [item for item in data if item.get("status") == status]
+   
+   if priority != "all" and status != "all":
+      filtered_tickets = [item for item in data if item.get("status") == status and item.get("priority") == priority]
+      logging.info(f"Fetched tickets with status {status} and priority {priority}")
+   
+   if (order == 'date desc'):
+      logging.info(f"Sorting tickets by date")
+      filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=True)
+   
+   if (order == 'date asc'):
+      logging.info(f"Sorting tickets by date")
+      filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=False)
+
+   if (order == 'priority'):
+      logging.info(f"Sorting tickets by priority")
+      priority_order = {'Low': 3, 'Medium': 2, 'High': 1}
+      filtered_tickets.sort(key=lambda x: priority_order.get(x['priority'], 0), reverse=False)
+
+   if (order == 'status'):
+      logging.info(f"Sorting tickets by status")
+      status_order = {'open': 2, 'in_progress': 1, 'close': 3}
+      filtered_tickets.sort(key=lambda x: status_order.get(x['status'], 0), reverse=False)
+
+   if (order == 'alphabetical'):
+      logging.info(f"Sorting tickets by alphabetical order")   
+      filtered_tickets.sort(key=lambda x: x['title'].lower(), reverse=False)
+   return JSONResponse(status_code=200, content={"status": 200, "message": f"Tickets with status {status}, priority {priority} and order by {order} fetched successfully.", "data": filtered_tickets})
 
 # PATCH endpoints
 @app.patch("/tickets/{id}")
