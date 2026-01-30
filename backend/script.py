@@ -43,7 +43,7 @@ def count_status():
     read_response = read_json_file()
     data = read_response["data"]
     if len(data) == 0:
-        return {"status": 404, "message": "Aucun ticket à analyser.", "data": None}
+        return {"status": 404, "message": "Counting impossible", "details": "No tickets in database"}
     status_count = {}
     for item in data:
         status = item.get("status")
@@ -52,7 +52,7 @@ def count_status():
                 status_count[status] += 1
             else:
                 status_count[status] = 1
-    return {"status": 200, "message": "Statut compté avec succès.", "data": status_count}
+    return {"status": 200, "message": "Status counted with success", "data": status_count}
 
 
 def delete_ticket_by_id(ticket_id: int):
@@ -66,13 +66,13 @@ def delete_ticket_by_id(ticket_id: int):
     read_response = read_json_file()
     data = read_response["data"]
     if len(data) == 0:
-        return {"status": 404, "message": "Aucun ticket à supprimer.", "data": None}
+        return {"status": 404, "message": "Deletion failed", "details": "No tickets in database"}
     new_data = [item for item in data if item.get("id") != ticket_id]
     if len(new_data) == len(data):
-        return {"status": 404, "message": f"Ticket d'id : {ticket_id} introuvable.", "data": None}
+        return {"status": 404, "message": "Deletion failed", "details": f"Ticket of id: {ticket_id} not found"}
     with open(filepath, 'w', encoding='utf-8') as file:
         json.dump(new_data, file, indent=4, ensure_ascii=False)
-    return {"status": 200, "message": f"Le ticket d'id : {ticket_id} a été supprimé.", "data": None}
+    return {"status": 200, "message": f"Ticket of id: {ticket_id} has been deleted.", "data": None}
 
 
 def update_json_ticket_status(ticket_id: int, new_status: StatusEnum):
@@ -87,7 +87,7 @@ def update_json_ticket_status(ticket_id: int, new_status: StatusEnum):
     read_response = read_json_file()
     data = read_response["data"]
     if len(data) == 0:
-        return {"status": 404, "message": "Aucun ticket à modifier.", "data": None}
+        return {"status": 404, "message": "Update failed", "details": "No tickets in database"}
     ticket_found = False
     updated_item = None
     for item in data:
@@ -97,7 +97,7 @@ def update_json_ticket_status(ticket_id: int, new_status: StatusEnum):
             updated_item = item
             break
     if not ticket_found:
-        return {"status": 404, "message": f"Ticket d'id : {ticket_id} introuvable.", "data": None}
+        return {"status": 404, "message": "Update failed", "details": f"Ticket of id: {ticket_id} not found."}
     with open(filepath, 'w', encoding='utf-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
-    return {"status": 200, "message": f"Le statut du ticket d'id : {ticket_id} a été mis à jour.", "data": updated_item}
+    return {"status": 200, "message": f"The status of ticket of id: {ticket_id} has been updated.", "data": updated_item}
