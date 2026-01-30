@@ -231,7 +231,7 @@
         "title": "Add dark mode feature #21",
         "description": "Allow users to export ticket data in various formats.",
         "priority": "Low",
-        "status": "In progress",
+        "status": "close",
         "tags": [
             "feature",
             "ux",
@@ -360,19 +360,6 @@
         "createdAt": "2026-01-20"
     },
     {
-        "id": 32,
-        "title": "Code refactoring needed #32",
-        "description": "Email notifications are not being sent to users.",
-        "priority": "High",
-        "status": "In progress",
-        "tags": [
-            "feature",
-            "mobile",
-            "security"
-        ],
-        "createdAt": "2026-01-30"
-    },
-    {
         "id": 33,
         "title": "Integration with third-party #33",
         "description": "The dashboard loads slowly when there are many tickets displayed.",
@@ -462,7 +449,7 @@
         "title": "Code refactoring needed #40",
         "description": "Fix layout issues on smaller screen sizes.",
         "priority": "High",
-        "status": "Open",
+        "status": "in progress",
         "tags": [
             "mobile",
             "documentation",
@@ -583,7 +570,7 @@
         "title": "UI improvement for mobile #50",
         "description": "Users cannot update their profile information properly.",
         "priority": "Medium",
-        "status": "In progress",
+        "status": "in progress",
         "tags": [
             "bug",
             "ui",
@@ -680,7 +667,7 @@
         "title": "Session timeout issue #58",
         "description": "Fix layout issues on smaller screen sizes.",
         "priority": "Medium",
-        "status": "Open",
+        "status": "in progress",
         "tags": [
             "performance"
         ],

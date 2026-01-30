@@ -186,6 +186,8 @@ def getFilteredOrderedTickets(filter_request: FilterRequest):
    valid_statuses = [e.value for e in StatusEnum] + ["all"]
    valid_priorities = [e.value for e in PriorityEnum] + ["all"]
    valid_orders = [ "date asc", "date desc", "alphabetical", "priority", "status" ]
+   print(status)
+   print(valid_statuses)
 
    if status not in valid_statuses:
       logging.error(f"Invalid status filter: {status}")
@@ -226,35 +228,36 @@ def getFilteredOrderedTickets(filter_request: FilterRequest):
       filtered_tickets = [item for item in data if item.get("priority") == priority]
       logging.info(f"Fetched tickets with priority {priority}")
    
-   if priority == "all" and status != "all":
+   elif priority == "all" and status != "all":
       logging.info(f"Fetched tickets with status {status}")
-      filtered_tickets = [item for item in data if item.get("status") == status]
+      filtered_tickets = [item for item in data if item.get("status").lower() == status.lower()]
    
-   if priority != "all" and status != "all":
-      filtered_tickets = [item for item in data if item.get("status") == status and item.get("priority") == priority]
+   elif priority != "all" and status != "all":
+      filtered_tickets = [item for item in data if item.get("status").lower() == status.lower() and item.get("priority") == priority]
       logging.info(f"Fetched tickets with status {status} and priority {priority}")
    
    if (order == 'date desc'):
       logging.info(f"Sorting tickets by date")
       filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=True)
    
-   if (order == 'date asc'):
+   elif (order == 'date asc'):
       logging.info(f"Sorting tickets by date")
       filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=False)
 
-   if (order == 'priority'):
+   elif (order == 'priority'):
       logging.info(f"Sorting tickets by priority")
       priority_order = {'Low': 3, 'Medium': 2, 'High': 1}
       filtered_tickets.sort(key=lambda x: priority_order.get(x['priority'], 0), reverse=False)
 
-   if (order == 'status'):
+   elif (order == 'status'):
       logging.info(f"Sorting tickets by status")
       status_order = {'open': 2, 'in_progress': 1, 'close': 3}
       filtered_tickets.sort(key=lambda x: status_order.get(x['status'], 0), reverse=False)
 
-   if (order == 'alphabetical'):
+   elif (order == 'alphabetical'):
       logging.info(f"Sorting tickets by alphabetical order")   
       filtered_tickets.sort(key=lambda x: x['title'].lower(), reverse=False)
+
    return JSONResponse(status_code=200, content={"status": 200, "message": f"Tickets with status {status}, priority {priority} and order by {order} fetched successfully.", "data": filtered_tickets})
 
 # PATCH endpoints
