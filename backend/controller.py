@@ -8,6 +8,8 @@ from script import count_status, read_json_file, write_json_file, delete_ticket_
 from models.TicketCreate import TicketCreate
 from models.StatusUpdate import StatusUpdate
 from models.FilterRequest import FilterRequest
+from models.StatusEnum import StatusEnum
+from models.PriorityEnum import PriorityEnum
 
 import json
 import logging
@@ -176,25 +178,23 @@ async def create_ticket(ticket: TicketCreate):
    return JSONResponse(status_code=result["status"], content=result)
 
 @app.post("/tickets/filter")
-def getFilteredTickets(filter_request: FilterRequest):
+def getFilteredOrderedTickets(filter_request: FilterRequest):
    status = filter_request.status
    priority = filter_request.priority
    order = filter_request.order
-   
-   from models.StatusEnum import StatusEnum
-   from models.PriorityEnum import PriorityEnum
-   
+      
    valid_statuses = [e.value for e in StatusEnum] + ["all"]
    valid_priorities = [e.value for e in PriorityEnum] + ["all"]
-   
+   valid_orders = [ "date asc", "date desc", "alphabetical", "priority", "status" ]
+
    if status not in valid_statuses:
       logging.error(f"Invalid status filter: {status}")
       return JSONResponse(
          status_code=400,
          content={
             "status": 400,
-            "message": f"Invalid status: {status}. Must be one of {valid_statuses}.",
-            "data": None
+            "message": "Invalid request",
+            "details": f"Invalid status: {status}. Must be one of {valid_statuses}."
          }
       )
    if priority not in valid_priorities:
@@ -203,8 +203,18 @@ def getFilteredTickets(filter_request: FilterRequest):
          status_code=400,
          content={
             "status": 400,
-            "message": f"Invalid priority: {priority}. Must be one of {valid_priorities}.",
-            "data": None
+            "message": "Invalid request",
+            "details": f"Invalid priority: {priority}. Must be one of {valid_priorities}."
+         }
+      )
+   if order not in valid_orders:
+      logging.error(f"Invalid order: {order}")
+      return JSONResponse(
+         status_code=400,
+         content={
+            "status": 400,
+            "message": "Invalid request",
+            "details": f"Invalid order: {order}. Must be one of {valid_orders}."
          }
       )
    
