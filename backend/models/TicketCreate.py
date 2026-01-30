@@ -4,7 +4,6 @@ from models.StatusEnum import StatusEnum
 from models.PriorityEnum import PriorityEnum
 
 class TicketCreate(BaseModel):
-   id: int
    title: str
    description: str
    status: StatusEnum 

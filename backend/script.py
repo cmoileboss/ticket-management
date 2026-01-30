@@ -26,7 +26,10 @@ def write_json_file(json_object : TicketCreate):
     """
     read_response = read_json_file()
     data = read_response["data"]
-    newObject = {"id": json_object.id, "title": json_object.title, "description": json_object.description,
+    max_id = get_max_id()
+    if max_id is None:
+        return 0
+    newObject = {"id": max_id + 1, "title": json_object.title, "description": json_object.description,
                  "status": json_object.status.value, "tags": json_object.tags,
                  "priority": json_object.priority.value, "createdAt": json_object.createdAt}
     data.append(newObject)
@@ -101,3 +104,17 @@ def update_json_ticket_status(ticket_id: int, new_status: StatusEnum):
     with open(filepath, 'w', encoding='utf-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
     return {"status": 200, "message": f"The status of ticket of id: {ticket_id} has been updated.", "data": updated_item}
+
+
+def get_max_id():
+    """
+    Retrieves the maximum ID from the tickets in the JSON file.
+    Returns:
+        dict: {"status": int, "message": str, "data": int}
+    """
+    read_response = read_json_file()
+    data = read_response["data"]
+    if len(data) == 0:
+        return None
+    max_id = max(item.get("id", 0) for item in data)
+    return max_id
