@@ -160,6 +160,38 @@ async def count_status_endpoint():
    logging.info("Counted ticket statuses")
    return JSONResponse(status_code=result["status"], content=result)
 
+@app.get("/tickets/status/{status}")
+def getByStatus(status: str):
+   if (status not in ["open", "in_progress", "closed"]):
+      return JSONResponse(
+         status_code=400,
+         content={
+            "status": 400,
+            "message": f"Invalid status: {status}. Must be one of ['open', 'in_progress', 'closed'].",
+            "data": None
+         }
+      )
+   read_response = read_json_file()
+   data = read_response["data"]
+   filtered_tickets = [item for item in data if item.get("status") == status]
+   return {"status": 200, "message": f"Tickets with status {status} fetched successfully.", "data": filtered_tickets}
+
+@app.get("/tickets/priority/{priority}")
+def getByPriority(priority: str):
+   if (priority not in ["Low", "Medium", "High"]):
+      return JSONResponse(
+         status_code=400,
+         content={
+            "status": 400,
+            "message": f"Invalid priority: {priority}. Must be one of ['Low', 'Medium', 'High'].",
+            "data": None
+         }
+      )
+   read_response = read_json_file()
+   data = read_response["data"]
+   filtered_tickets = [item for item in data if item.get("priority") == priority]
+   return {"status": 200, "message": f"Tickets with priority {priority} fetched successfully.", "data": filtered_tickets}
+
 # DELETE endpoints
 @app.delete("/tickets/{id}")
 async def delete_ticket(id: int):

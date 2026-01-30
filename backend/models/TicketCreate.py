@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel , ValidationError , field_validator
+from pydantic import BaseModel, field_validator
 from models.StatusEnum import StatusEnum
 from models.PriorityEnum import PriorityEnum
 
@@ -12,20 +12,20 @@ class TicketCreate(BaseModel):
    priority: PriorityEnum
    createdAt: str
 
-   @field_validator( 'title' )
+   @field_validator('title')
    @classmethod
    def title_must_not_be_empty(cls, v):
        if not v or not v.strip():
            raise ValueError('Title must not be empty')
        return v
 
-   @field_validator( 'description' )
+   @field_validator('description')
    @classmethod
    def description_must_not_be_empty(cls, v):
        if not v or not v.strip():
            raise ValueError('Description must not be empty')
        return v
-   @field_validator( 'createdAt' )
+   @field_validator('createdAt')
    @classmethod
    def createdAt_must_not_be_empty(cls, v):
        if not v or not v.strip():
