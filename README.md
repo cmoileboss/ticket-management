@@ -27,7 +27,9 @@ Frontend accessible depuis localhost:5173.
 
 **Get Endpoints**  
 http://localhost:8000/tickets  
-http://localhost:8000/count-status
+http://localhost:8000/tickets/count-status
+http://localhost:8000/tickets/priority/{priority}
+http://localhost:8000/tickets/status/{status}
 
 **POST Endpoints**  
 http://localhost:8000/tickets/{id}
