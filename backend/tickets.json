@@ -1,30 +1,5 @@
 [
     {
-        "id": 1,
-        "title": "Bug bouton login",
-        "description": "Le bouton de connexion ne répond pas sur mobile (Android).",
-        "priority": "High",
-        "status": "in progress",
-        "tags": [
-            "bug",
-            "ui",
-            "mobile"
-        ],
-        "createdAt": "2026-01-16"
-    },
-    {
-        "id": 2,
-        "title": "Ajouter un filtre par priorité",
-        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste.",
-        "priority": "Medium",
-        "status": "in progress",
-        "tags": [
-            "feature",
-            "ux"
-        ],
-        "createdAt": "2026-01-15"
-    },
-    {
         "id": 3,
         "title": "Erreur 500 lors de la création de compte",
         "description": "Une erreur serveur se produit lors de la tentative d'inscription avec un email déjà existant.",
@@ -42,7 +17,7 @@
         "title": "Optimiser les performances de chargement",
         "description": "La page d'accueil met plus de 3 secondes à charger. Optimiser les requêtes et le chargement des ressources.",
         "priority": "Medium",
-        "status": "in progress",
+        "status": "open",
         "tags": [
             "performance",
             "optimization"
@@ -138,5 +113,16 @@
             "oauth"
         ],
         "createdAt": "2026-01-22"
+    },
+    {
+        "id": 12,
+        "title": "rrr",
+        "description": "rrr",
+        "status": "open",
+        "tags": [
+            ""
+        ],
+        "priority": "Low",
+        "createdAt": "2026-01-30"
     }
 ]
