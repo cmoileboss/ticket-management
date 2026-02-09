@@ -8,11 +8,8 @@ from API.schemas.Ticket import Ticket
 from API.models.TicketCreate import TicketCreate
 from API.models.StatusUpdate import StatusUpdate
 from API.models.FilterRequest import FilterRequest
-from API.models.Enum.StatusEnum import StatusEnum
-from API.models.Enum.PriorityEnum import PriorityEnum
 
-from API.errors import RequestValidationError
-from API.service import count_status, read_json_file, write_json_file, delete_ticket_by_id, update_json_ticket_status
+from API.service import count_status, filter_tickets, read_json_file, write_json_file, delete_ticket_by_id, update_json_ticket_status
 
 import logging
 
@@ -53,44 +50,9 @@ def getFilteredOrderedTickets(filter_request: FilterRequest):
    priority = filter_request.priority.value
    order = filter_request.order.value
 
-   data = read_json_file()
-   filtered_tickets = data.copy()
-
-   if status == "all" and priority != "all":
-      filtered_tickets = [item for item in data if item.get("priority") == priority]
-      logger.info(f"Fetched tickets with priority {priority}")
-   
-   elif priority == "all" and status != "all":
-      logger.info(f"Fetched tickets with status {status}")
-      filtered_tickets = [item for item in data if item.get("status").lower() == status.lower()]
-   
-   elif priority != "all" and status != "all":
-      filtered_tickets = [item for item in data if item.get("status").lower() == status.lower() and item.get("priority") == priority]
-      logger.info(f"Fetched tickets with status {status} and priority {priority}")
-   
-   if (order == 'date desc'):
-      logger.info(f"Sorting tickets by date")
-      filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=True)
-   
-   elif (order == 'date asc'):
-      logger.info(f"Sorting tickets by date")
-      filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=False)
-
-   elif (order == 'priority'):
-      logger.info(f"Sorting tickets by priority")
-      priority_order = {'Low': 3, 'Medium': 2, 'High': 1}
-      filtered_tickets.sort(key=lambda x: priority_order.get(x['priority'], 0), reverse=False)
-
-   elif (order == 'status'):
-      logger.info(f"Sorting tickets by status")
-      status_order = {'Open': 2, 'In progress': 1, 'Closed': 3}
-      filtered_tickets.sort(key=lambda x: status_order.get(x['status'], 0), reverse=False)
-
-   elif (order == 'alphabetical'):
-      logger.info(f"Sorting tickets by alphabetical order")   
-      filtered_tickets.sort(key=lambda x: x['title'].lower(), reverse=False)
-
+   filtered_tickets = filter_tickets(status, priority, order)
    return filtered_tickets
+
 
 # PATCH endpoints
 @router.patch("/{id}", response_model=Ticket, status_code=200)

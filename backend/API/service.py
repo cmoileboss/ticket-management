@@ -146,3 +146,43 @@ def get_max_id():
         return None
     max_id = max(item.get("id", 0) for item in data)
     return max_id
+
+def filter_tickets(status: str, priority: str, order: str):
+    data = read_json_file()
+    filtered_tickets = data.copy()
+
+    if status == "all" and priority != "all":
+        filtered_tickets = [item for item in data if item.get("priority") == priority]
+        logger.info(f"Fetched tickets with priority {priority}")
+
+    elif priority == "all" and status != "all":
+        logger.info(f"Fetched tickets with status {status}")
+        filtered_tickets = [item for item in data if item.get("status").lower() == status.lower()]
+
+    elif priority != "all" and status != "all":
+        filtered_tickets = [item for item in data if item.get("status").lower() == status.lower() and item.get("priority") == priority]
+        logger.info(f"Fetched tickets with status {status} and priority {priority}")
+
+    if (order == 'date desc'):
+        logger.info(f"Sorting tickets by date")
+        filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=True)
+
+    elif (order == 'date asc'):
+        logger.info(f"Sorting tickets by date")
+        filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=False)
+
+    elif (order == 'priority'):
+        logger.info(f"Sorting tickets by priority")
+        priority_order = {'Low': 3, 'Medium': 2, 'High': 1}
+        filtered_tickets.sort(key=lambda x: priority_order.get(x['priority'], 0), reverse=False)
+
+    elif (order == 'status'):
+        logger.info(f"Sorting tickets by status")
+        status_order = {'Open': 2, 'In progress': 1, 'Closed': 3}
+        filtered_tickets.sort(key=lambda x: status_order.get(x['status'], 0), reverse=False)
+
+    elif (order == 'alphabetical'):
+        logger.info(f"Sorting tickets by alphabetical order")   
+        filtered_tickets.sort(key=lambda x: x['title'].lower(), reverse=False)
+
+    return filtered_tickets
