@@ -1,7 +1,7 @@
 # backend/tests/conftest.py
 import pytest
 from fastapi.testclient import TestClient
-from backend.controller import app
+from backend.main import app
 
 @pytest.fixture
 def client():

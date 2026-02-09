@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from models.StatusEnum import StatusEnum
+
+from API.models.Enum.StatusEnum import StatusEnum
 
 
 class StatusUpdate(BaseModel):
