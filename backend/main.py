@@ -8,14 +8,10 @@ from fastapi import HTTPException
 
 from API.controller import router
 from API.errors import (
-    response_validation_exception_handler,
-    request_validation_exception_handler,
     http_exception_handler,
     file_not_found_exception_handler,
     json_decode_exception_handler,
-    permission_exception_handler,
-    type_error_handler,
-    value_error_handler
+    permission_exception_handler
 )
 
 
