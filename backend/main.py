@@ -55,14 +55,10 @@ def create_app():
         allow_headers=["*"],
     )
 
-    app.add_exception_handler(ResponseValidationError, response_validation_exception_handler)
-    app.add_exception_handler(RequestValidationError, request_validation_exception_handler)
     app.add_exception_handler(HTTPException, http_exception_handler)
     app.add_exception_handler(FileNotFoundError, file_not_found_exception_handler)
     app.add_exception_handler(json.JSONDecodeError, json_decode_exception_handler)
     app.add_exception_handler(PermissionError, permission_exception_handler)
-    app.add_exception_handler(TypeError, type_error_handler)
-    app.add_exception_handler(ValueError, value_error_handler)
 
     app.include_router(router)
     
