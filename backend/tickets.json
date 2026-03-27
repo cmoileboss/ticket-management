@@ -5,7 +5,10 @@
         "description": "Fix the bug causing login failures for some users.",
         "priority": "Medium",
         "status": "Open",
-        "tags": ["bug", "frontend"],
+        "tags": [
+            "bug",
+            "frontend"
+        ],
         "createdAt": "2026-02-01"
     },
     {
@@ -14,7 +17,10 @@
         "description": "Optimize slow queries in the user dashboard to improve load times.",
         "priority": "High",
         "status": "In progress",
-        "tags": ["performance", "database"],
+        "tags": [
+            "performance",
+            "database"
+        ],
         "createdAt": "2026-02-07"
     },
     {
@@ -23,7 +29,10 @@
         "description": "Allow users to export tickets as CSV files.",
         "priority": "Low",
         "status": "Open",
-        "tags": ["feature", "export"],
+        "tags": [
+            "feature",
+            "export"
+        ],
         "createdAt": "2026-02-10"
     },
     {
@@ -32,7 +41,10 @@
         "description": "Redesign the user profile page for better usability.",
         "priority": "Medium",
         "status": "In progress",
-        "tags": ["UI", "enhancement"],
+        "tags": [
+            "UI",
+            "enhancement"
+        ],
         "createdAt": "2026-02-12"
     },
     {
@@ -41,7 +53,10 @@
         "description": "Investigate and fix the issue with email notifications.",
         "priority": "High",
         "status": "Open",
-        "tags": ["bug", "email"],
+        "tags": [
+            "bug",
+            "email"
+        ],
         "createdAt": "2026-02-13"
     },
     {
@@ -50,7 +65,10 @@
         "description": "Implement dark mode for the application.",
         "priority": "Low",
         "status": "Open",
-        "tags": ["feature", "UI"],
+        "tags": [
+            "feature",
+            "UI"
+        ],
         "createdAt": "2026-02-15"
     },
     {
@@ -59,7 +77,10 @@
         "description": "Refactor the ticket service for better maintainability.",
         "priority": "Medium",
         "status": "In progress",
-        "tags": ["refactor", "backend"],
+        "tags": [
+            "refactor",
+            "backend"
+        ],
         "createdAt": "2026-02-16"
     },
     {
@@ -68,7 +89,10 @@
         "description": "Allow users to reset their password via email.",
         "priority": "High",
         "status": "Open",
-        "tags": ["feature", "security"],
+        "tags": [
+            "feature",
+            "security"
+        ],
         "createdAt": "2026-02-18"
     },
     {
@@ -77,7 +101,10 @@
         "description": "Improve the performance of the ticket search functionality.",
         "priority": "Medium",
         "status": "In progress",
-        "tags": ["performance", "search"],
+        "tags": [
+            "performance",
+            "search"
+        ],
         "createdAt": "2026-02-20"
     },
     {
@@ -85,8 +112,11 @@
         "title": "Fix typo in dashboard",
         "description": "Correct the typo in the dashboard header.",
         "priority": "Low",
-        "status": "Closed",
-        "tags": ["bug", "UI"],
+        "status": "In progress",
+        "tags": [
+            "bug",
+            "UI"
+        ],
         "createdAt": "2026-02-22"
     }
 ]

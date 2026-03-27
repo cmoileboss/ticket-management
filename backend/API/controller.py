@@ -36,6 +36,7 @@ async def count_status_endpoint():
 async def delete_ticket(id: int):
    delete_ticket_by_id(id)
    logger.info(f"Deleted ticket with ID {id}")
+   return True
 
 # POST endpoints
 @router.post("/", response_model=Ticket, status_code=201)
