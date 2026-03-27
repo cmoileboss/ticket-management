@@ -1,123 +1,92 @@
 [
     {
         "id": 1,
-        "title": "Fix login authentication bug",
-        "description": "Users are unable to login with valid credentials on mobile devices.",
-        "priority": "High",
+        "title": "Login page bug",
+        "description": "Fix the bug causing login failures for some users.",
+        "priority": "Medium",
         "status": "Open",
-        "tags": [
-            "bug",
-            "authentication",
-            "mobile"
-        ],
-        "createdAt": "2026-02-09"
+        "tags": ["bug", "frontend"],
+        "createdAt": "2026-02-01"
     },
     {
-        "id": 3,
+        "id": 2,
         "title": "Database query optimization",
         "description": "Optimize slow queries in the user dashboard to improve load times.",
         "priority": "High",
         "status": "In progress",
-        "tags": [
-            "performance",
-            "database"
-        ],
+        "tags": ["performance", "database"],
         "createdAt": "2026-02-07"
     },
     {
-        "id": 4,
-        "title": "Update documentation pages",
-        "description": "Revise API documentation to reflect recent endpoint changes and additions.",
+        "id": 3,
+        "title": "Add ticket export feature",
+        "description": "Allow users to export tickets as CSV files.",
         "priority": "Low",
         "status": "Open",
-        "tags": [
-            "documentation"
-        ],
-        "createdAt": "2026-02-06"
+        "tags": ["feature", "export"],
+        "createdAt": "2026-02-10"
+    },
+    {
+        "id": 4,
+        "title": "Update user profile UI",
+        "description": "Redesign the user profile page for better usability.",
+        "priority": "Medium",
+        "status": "In progress",
+        "tags": ["UI", "enhancement"],
+        "createdAt": "2026-02-12"
     },
     {
         "id": 5,
-        "title": "Email notification system",
-        "description": "Implement email notifications for important user account activities.",
-        "priority": "Medium",
+        "title": "Email notifications not sent",
+        "description": "Investigate and fix the issue with email notifications.",
+        "priority": "High",
         "status": "Open",
-        "tags": [
-            "feature",
-            "notifications"
-        ],
-        "createdAt": "2026-02-05"
+        "tags": ["bug", "email"],
+        "createdAt": "2026-02-13"
     },
     {
         "id": 6,
-        "title": "Fix memory leak in service",
-        "description": "Background service consuming excessive memory after extended runtime.",
-        "priority": "High",
-        "status": "Closed",
-        "tags": [
-            "bug",
-            "performance",
-            "backend"
-        ],
-        "createdAt": "2026-02-01"
+        "title": "Add dark mode",
+        "description": "Implement dark mode for the application.",
+        "priority": "Low",
+        "status": "Open",
+        "tags": ["feature", "UI"],
+        "createdAt": "2026-02-15"
     },
     {
         "id": 7,
-        "title": "Add export to CSV feature",
-        "description": "Allow users to export their data reports in CSV format for analysis.",
-        "priority": "Low",
-        "status": "Open",
-        "tags": [
-            "feature",
-            "export"
-        ],
-        "createdAt": "2026-01-30"
+        "title": "Refactor ticket service",
+        "description": "Refactor the ticket service for better maintainability.",
+        "priority": "Medium",
+        "status": "In progress",
+        "tags": ["refactor", "backend"],
+        "createdAt": "2026-02-16"
     },
     {
         "id": 8,
-        "title": "Improve error messages",
-        "description": "Make error messages more user-friendly and provide actionable solutions.",
-        "priority": "Medium",
-        "status": "In progress",
-        "tags": [
-            "ux",
-            "improvement"
-        ],
-        "createdAt": "2026-01-28"
+        "title": "Add password reset",
+        "description": "Allow users to reset their password via email.",
+        "priority": "High",
+        "status": "Open",
+        "tags": ["feature", "security"],
+        "createdAt": "2026-02-18"
     },
     {
         "id": 9,
-        "title": "Upgrade dependency versions",
-        "description": "Update all project dependencies to their latest stable versions.",
+        "title": "Ticket search slow",
+        "description": "Improve the performance of the ticket search functionality.",
         "priority": "Medium",
-        "status": "Closed",
-        "tags": [
-            "maintenance",
-            "security"
-        ],
-        "createdAt": "2026-01-25"
+        "status": "In progress",
+        "tags": ["performance", "search"],
+        "createdAt": "2026-02-20"
     },
     {
         "id": 10,
-        "title": "Add unit tests coverage",
-        "description": "Increase unit test coverage for critical business logic modules.",
-        "priority": "High",
-        "status": "Open",
-        "tags": [
-            "testing",
-            "quality"
-        ],
-        "createdAt": "2026-01-20"
-    },
-    {
-        "id": 11,
-        "title": "Ajouter un filtre par priorité",
-        "description": "Permettre de filtrer les tickets par priorité (Low, Medium, High) sur la page liste ",
-        "status": "In progress",
-        "tags": [
-            "feature",
-            "ux"
-        ],
-        "priority": "Medium",
-        "createdAt": "2026-01-15"
+        "title": "Fix typo in dashboard",
+        "description": "Correct the typo in the dashboard header.",
+        "priority": "Low",
+        "status": "Closed",
+        "tags": ["bug", "UI"],
+        "createdAt": "2026-02-22"
     }
 ]

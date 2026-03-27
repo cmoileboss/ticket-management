@@ -163,11 +163,11 @@ def filter_tickets(status: str, priority: str, order: str):
         filtered_tickets = [item for item in data if item.get("status").lower() == status.lower() and item.get("priority") == priority]
         logger.info(f"Fetched tickets with status {status} and priority {priority}")
 
-    if (order == 'date desc'):
+    if (order == 'date_desc'):
         logger.info(f"Sorting tickets by date")
         filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=True)
 
-    elif (order == 'date asc'):
+    elif (order == 'date_asc'):
         logger.info(f"Sorting tickets by date")
         filtered_tickets.sort(key=lambda x: x['createdAt'], reverse=False)
 
